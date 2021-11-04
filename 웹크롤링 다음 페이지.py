@@ -22,10 +22,10 @@ search_more = browser.find_element_by_css_selector('.option1 > a')
 search_more.click()
 time.sleep(3)
 
-f = open(r'C:\Users\yongs\GDSC\DataBase_TeamProject\인천광역시 서구 식당 data_test.csv', 'w', encoding='CP949', newline = '')
+f = open(r'C:\Users\yongs\GDSC\DataBase_TeamProject\인천광역시 서구 식당 data_test2.csv', 'w', encoding='CP949', newline = '')
 csvWriter = csv.writer(f)
 
-for whole_page_num in range(1, 2):
+for whole_page_num in range(1, 3):
     for page_num in range(1, 6):     
         try: 
             next_page = browser.find_element_by_css_selector(f"#info\.search\.page\.no{page_num}")
