@@ -23,9 +23,11 @@ time.sleep(2)
 
 
 # 안되는 부분 =====================================================================
-# search_more = browser.find_element_by_xpath('//*[@id="info.search.place.more"]')
-# search_more.click()
-# time.sleep(3)
+close = browser.find_element_by_css_selector('.view_coach')
+close.click()
+search_more = browser.find_element_by_css_selector('.option1 > a')
+search_more.click()
+time.sleep(3)
 #=================================================================================
 
 # 장소 더보기 후
@@ -33,9 +35,16 @@ time.sleep(2)
 # 근데 url에 변화가 없는데 어떡하지?
 # 일일이 버튼을 클릭해야 하나...?
 
-informations = browser.find_elements_by_css_selector('.PlaceItem.clickArea')
+for p in range(100):
+    informations = browser.find_elements_by_css_selector('.PlaceItem.clickArea')
 
-for information in informations:
-    name = information.find_element_by_css_selector("a.link_name").text
-    address = information.find_element_by_css_selector("div.addr > p:nth-child(1)").text
-    print(name, address)
+    for information in informations:
+        name = information.find_element_by_css_selector("a.link_name").text
+        address = information.find_element_by_css_selector("div.addr > p:nth-child(1)").text
+        print(name, address)
+
+    try:
+        next_btn = browser.find_element_by_css_selector("info.search.page.next")
+        next_btn.click()
+    except:
+        print("데이터 수집 완료")
