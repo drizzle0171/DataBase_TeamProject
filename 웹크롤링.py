@@ -43,6 +43,11 @@ for p in range(100):
         address = information.find_element_by_css_selector("div.addr > p:nth-child(1)").text
         print(name, address)
 
+# ===================================================================================
+# 장소 더보기는 사실 다른 거 때문에 문제 -> 그 옆에 파란색 원 ;;;;;;;
+# 파란색 원 없애고 장소 더보기 or 장소 -> 나는 장소
+# 이제 다음 관문은 다음 페이지로 넘기는 것이다........
+
     try:
         next_btn = browser.find_element_by_css_selector("info.search.page.next")
         next_btn.click()
